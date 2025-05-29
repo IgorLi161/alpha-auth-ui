@@ -1,0 +1,85 @@
+
+.auth-body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.auth-box {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Заголовок */
+.auth-title {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+}
+
+/* Подзаголовок */
+.auth-sub {
+  margin-bottom: 24px;
+  font-size: 16px;
+  color: #555555;
+}
+
+/* Поля ввода */
+.auth-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.auth-input:focus {
+  border-color: #6b5cf6;
+}
+
+/* Кнопка */
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #6b5cf6;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #5746d1;
+}
+
+
+.auth-error {
+  color: #e63946;
+  background-color: #ffe8e9;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}

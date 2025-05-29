@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Добро пожаловать</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="auth-body">
+  <div class="auth-container">
+    <div class="auth-box">
+      <h1 class="auth-title">Добро пожаловать, <%= user.email %></h1>
+      <p class="auth-sub">Вы вошли как <strong><%= user.role %></strong></p>
+      <form method="GET" action="/logout">
+        <button type="submit" class="auth-button">Выйти</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
