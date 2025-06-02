@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактировать студента</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="auth-body">
+  <div class="auth-container">
+    <div class="auth-box">
+      <h1 class="auth-title">Редактировать студента</h1>
+
+      <% if (error) { %>
+        <div class="auth-error"><%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/students/edit/<%= student.id %>">
+        <input class="auth-input" type="text" name="full_name" placeholder="ФИО" value="<%= student.full_name %>" required />
+        <input class="auth-input" type="text" name="iin" placeholder="ИИН" value="<%= student.iin %>" required />
+        <input class="auth-input" type="email" name="email" placeholder="Email" value="<%= student.email %>" />
+        <input class="auth-input" type="text" name="phone" placeholder="Телефон" value="<%= student.phone %>" />
+        <input class="auth-input" type="text" name="status" placeholder="Статус" value="<%= student.status %>" />
+        <input class="auth-input" type="text" name="funding_source" placeholder="Источник финансирования" value="<%= student.funding_source %>" />
+        <input class="auth-input" type="text" name="subject" placeholder="Курс" value="<%= student.subject %>" />
+        <input class="auth-input" type="number" name="total_cost" placeholder="Полная стоимость" value="<%= student.total_cost %>" />
+        <input class="auth-input" type="number" name="discount_percent" placeholder="Скидка (%)" value="<%= student.discount_percent %>" />
+        <input class="auth-input" type="number" name="paid_amount" placeholder="Оплачено" value="<%= student.paid_amount %>" />
+
+        <label>
+          <input type="checkbox" name="top_student" <% if (student.top_student) { %>checked<% } %> /> Отличник
+        </label>
+
+        <button class="auth-button" type="submit">💾 Сохранить</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

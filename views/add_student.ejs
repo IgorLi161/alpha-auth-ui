@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Добавить студента</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="auth-body">
+  <div class="auth-container" style="max-width: 920px;">
+    <div class="auth-box" style="padding: 32px 40px;">
+      <h2 class="auth-title" style="text-align: left;">Добавить студента</h2>
+      <% if (error) { %>
+        <div class="auth-error"><%= error %></div>
+      <% } %>
+      <form method="POST" action="/students/add">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+
+          <input name="full_name" placeholder="Фамилия Имя Отчество" class="auth-input" required />
+          <input name="iin" placeholder="ИИН" class="auth-input" required />
+
+          <input name="email" placeholder="Email" class="auth-input" />
+          <input name="phone" placeholder="+7 (xxx) xxx-xx-xx" class="auth-input" />
+
+          <select name="status" class="auth-input">
+            <option value="">Статус</option>
+            <option value="student">Студент</option>
+            <option value="graduate">Выпускник</option>
+          </select>
+
+          <select name="funding_source" class="auth-input">
+            <option value="">Финансирование</option>
+            <option value="TechOrda">TechOrda</option>
+            <option value="30_discount">Со скидкой 30%</option>
+            <option value="grant">Грант</option>
+          </select>
+
+          <input name="subject" placeholder="Предмет / Курс" class="auth-input" />
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #333;">
+            <input type="checkbox" name="top_student" />
+            Top Student
+          </label>
+
+          <input name="total_cost" placeholder="Оплата за курс" class="auth-input" />
+          <input name="discount_percent" placeholder="Скидка %" class="auth-input" />
+          <input name="paid_amount" placeholder="Сумма оплачено" class="auth-input" />
+        </div>
+
+        <div style="margin-top: 24px; text-align: right;">
+          <button type="submit" class="auth-button" style="padding: 12px 20px; font-size: 14px;">
+            💾 Сохранить профиль
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

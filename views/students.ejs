@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Список студентов</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="auth-body">
+  <div class="auth-container" style="max-width: 1080px;">
+    <div class="auth-box">
+      <h1 class="auth-title" style="text-align: left; margin-bottom: 20px;">Список студентов</h1>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; gap: 10px;">
+          <a href="/students/add">
+            <button class="auth-button" style="background-color: #6b5cf6;">➕ Добавить студента</button>
+          </a>
+          <button class="auth-button" style="background-color: #6b5cf6;">⚙️ Фильтр</button>
+        </div>
+        <form method="GET" action="/students" style="max-width: 260px; width: 100%;">
+          <input type="text" name="search" value="<%= search %>" placeholder="🔍 Поиск"
+            class="auth-input" style="border: 1px solid #b3b3ff; border-radius: 8px;" />
+        </form>
+      </div>
+
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background-color: #f0f0ff; text-align: left;">
+            <th style="padding: 14px 16px; border-bottom: 1px solid #ccc;">Студент</th>
+            <th style="padding: 14px 16px; border-bottom: 1px solid #ccc;">ИИН</th>
+            <th style="padding: 14px 16px; border-bottom: 1px solid #ccc;">Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% students.forEach(student => { %>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 12px 16px; color: #5b48f0; font-weight: 500;"><%= student.full_name %></td>
+              <td style="padding: 12px 16px; color: #333;"><%= student.iin %></td>
+              <td style="padding: 12px 16px; display: flex; gap: 8px;">
+                <a href="/students/edit/<%= student.id %>">
+                  <button type="button" class="auth-button" style="background-color: #f0ad4e; padding: 6px 12px; font-size: 13px;">Редактировать</button>
+                </a>
+                <form action="/students/delete/<%= student.id %>" method="POST" onsubmit="return confirm('Удалить этого студента?');">
+                  <button type="submit" class="auth-button" style="background-color: #e63946; padding: 6px 12px; font-size: 13px;">Удалить</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

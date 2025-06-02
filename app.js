@@ -1,8 +1,11 @@
+// app.js
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const dotenv = require('dotenv');
+
 const authRoutes = require('./routes/auth');
+const studentRoutes = require('./routes/students');
 
 dotenv.config();
 const app = express();
@@ -19,6 +22,11 @@ app.use(session({
 }));
 
 app.use('/', authRoutes);
+app.use('/', studentRoutes);
+
+app.get('/', (req, res) => {
+  res.redirect('/auth');
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
